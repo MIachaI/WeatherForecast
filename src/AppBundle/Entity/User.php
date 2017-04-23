@@ -1,67 +1,45 @@
-<?php // src/AppBundle/Entity/User.php
+<?php
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * User
+ *
  * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User extends BaseUser
+class User
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
+
+//    /**
+//     * @var
+//     *
+//     * @ORM/OneToMany(targetEntity="Comment", mappedBy="user")
+//     */
+//    private $comments;
+
+
+
+
 
     /**
-     * @ORM\OneToMany(targetEntity="UserOrder", mappedBy="user")
-     */
-    private $userOrders;
-
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-        $this->userOrders = new ArrayCollection();
-    }
-
-    /**
-     * Add userOrder
+     * Get id
      *
-     * @param \AppBundle\Entity\UserOrder $userOrder
-     *
-     * @return User
+     * @return int
      */
-    public function addUserOrder(\AppBundle\Entity\UserOrder $userOrder)
+    public function getId()
     {
-        $this->userOrders[] = $userOrder;
-
-        return $this;
-    }
-
-    /**
-     * Remove userOrder
-     *
-     * @param \AppBundle\Entity\UserOrder $userOrder
-     */
-    public function removeUserOrder(\AppBundle\Entity\UserOrder $userOrder)
-    {
-        $this->userOrders->removeElement($userOrder);
-    }
-
-    /**
-     * Get userOrders
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUserOrders()
-    {
-        return $this->userOrders;
+        return $this->id;
     }
 }
+
