@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Twój pogodny dzień{% endblock %}</title>
         {% block stylesheets %}
-            {#<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css"/>#}
+            {#<link rel="stylesheet" href="{{ asset('app/Resources/bootstrap/css/bootstrap.min.css') }}" type="text/css"/>#}
             {#<link rel="stylesheet" href="{{ asset('css/CSS.css') }}" type="text/css"/>#}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -66,51 +66,22 @@
                         <li><a class="active" href="" id="zegar">czas</a></li>
                         <li><a class="active" href="">Europa</a></li>
                         <li class="nav navbar-nav navbar-right"><a href="" > Polska<span class="sr-only">(current)</span></a></li>
-
-
                     </ul>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
                         </div>
                     </form>
-                   <!-- <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="x" data-toggle="modal" data-target="#login-modal">Logowanie</a></li>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/login" data-toggle="modal" data-target="#login-modal">Logowanie</a></li>
                         <li><a href="x" data-toggle="modal" data-target="#register-modal">Rejestracja</a></li>
-                        <li><a href="file:///D:/Programowanie/web/webtraining/index.html">Strona Główna</a></li>
-                        <!-- <li class="dropdown"> -->
-                        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ustawienia<span class="caret"></span></a> -->
-                        <!-- <ul class="dropdown-menu"> -->
-                        <!-- <li><a href="#">Action</a></li> -->
-                        <!-- <li><a href="#">Another action</a></li> -->
-                        <!-- <li><a href="#">Something else here</a></li> -->
-                        <!-- <li role="separator" class="divider"></li> -->
-                        <!-- <li><a href="#">Separated link</a></li> -->
-                        <!-- </ul> -->
-                        <!-- </li> -->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
 
-        <!--<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog">
-                <div class="loginmodal-container">
-                    <h1>Zaloguj się</h1><br>
-                    <form>
-                        <input type="text" name="name" placeholder="Nazwa użytkownika">
-                        <input type="password" name="pass" placeholder="Hasło">
-                        <input type="submit" name="login" class="login loginmodal-submit" value="Zaloguj">
-                    </form>
 
-                    <div class="login-help">
-                        <a href="#" data-toggle="modal" data-target="#register-modal">Zarejestruj</a> - <a href="#">Zapomniałem hasła :(</a>
-                    </div>
-                </div>
-            </div>
-        </div>-->
 
-       <!-- <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
                 <div class="loginmodal-container">
                     <h1>Zarejestruj się</h1><br>
@@ -123,7 +94,7 @@
                     </form>
                 </div>
             </div>
-        </div>-->
+        </div>
 
 
         <div class="modal-body row">
@@ -201,9 +172,8 @@
                         {#</div>#}
                     {#</div>#}
                 {#</div>#}
+            {#</div>#}
 
-
-            </div>
 
         {% block javascripts %}
             {#<script src="{{ asset('js/jquery.js') }}"></script>#}
