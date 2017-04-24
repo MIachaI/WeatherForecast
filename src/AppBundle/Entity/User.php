@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+use FOS\UserBundle\Model\UserInterface;
 
 /**
  * User
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser implements UserInterface
 {
     /**
      * @var int
@@ -19,7 +21,7 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
 //    /**
 //     * @var
@@ -28,8 +30,11 @@ class User
 //     */
 //    private $comments;
 
+    public function __construct()
+    {
+        parent::__construct();
 
-
+    }
 
 
     /**
@@ -42,4 +47,3 @@ class User
         return $this->id;
     }
 }
-

@@ -2,12 +2,217 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <title>{% block title %}Twój pogodny dzień{% endblock %}</title>
+        {% block stylesheets %}
+            {#<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css"/>#}
+            {#<link rel="stylesheet" href="{{ asset('css/CSS.css') }}" type="text/css"/>#}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        {% endblock %}
+        <meta name="description" container="to jest strona o pogodzie">
+        <meta name="keywords" container="to,jest,dobra,strona">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+
+        <script type="text/javascript">
+
+            function sprawdz(){
+                document.getElementById()
+            }
+
+            function odliczanie(){
+                var dzisiaj = new Date();
+                var dzien = dzisiaj.getDate();
+                var miesiac = dzisiaj.getMonth()+1;
+                var rok = dzisiaj.getFullYear();
+                var godzina = dzisiaj.getHours();
+                if (godzina<10) godzina = "0"+godzina;
+                var minuta = dzisiaj.getMinutes();
+                if (minuta<10) minuta = "0"+minuta;
+                var sekunda = dzisiaj.getSeconds();
+                if (sekunda<10) sekunda = "0"+sekunda;
+
+                document.getElementById("zegar").innerHTML=
+                    dzien+"/"+miesiac+"/"+rok+"| "+godzina+":"+minuta+":"+sekunda ;
+
+                setTimeout("odliczanie()",1000);
+            }
+
+
+
+        </script>
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+
+
+    <body onload="odliczanie();">
+
+        <nav class="navbar navbar-inverse navbar-static-top" style="background-color: #337AB7">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a class="active" href="" id="zegar">czas</a></li>
+                        <li><a class="active" href="">Europa</a></li>
+                        <li class="nav navbar-nav navbar-right"><a href="" > Polska<span class="sr-only">(current)</span></a></li>
+
+
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                        </div>
+                    </form>
+                   <!-- <ul class="nav navbar-nav navbar-right">
+
+                        <li><a href="x" data-toggle="modal" data-target="#login-modal">Logowanie</a></li>
+                        <li><a href="x" data-toggle="modal" data-target="#register-modal">Rejestracja</a></li>
+                        <li><a href="file:///D:/Programowanie/web/webtraining/index.html">Strona Główna</a></li>
+                        <!-- <li class="dropdown"> -->
+                        <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ustawienia<span class="caret"></span></a> -->
+                        <!-- <ul class="dropdown-menu"> -->
+                        <!-- <li><a href="#">Action</a></li> -->
+                        <!-- <li><a href="#">Another action</a></li> -->
+                        <!-- <li><a href="#">Something else here</a></li> -->
+                        <!-- <li role="separator" class="divider"></li> -->
+                        <!-- <li><a href="#">Separated link</a></li> -->
+                        <!-- </ul> -->
+                        <!-- </li> -->
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <!--<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Zaloguj się</h1><br>
+                    <form>
+                        <input type="text" name="name" placeholder="Nazwa użytkownika">
+                        <input type="password" name="pass" placeholder="Hasło">
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Zaloguj">
+                    </form>
+
+                    <div class="login-help">
+                        <a href="#" data-toggle="modal" data-target="#register-modal">Zarejestruj</a> - <a href="#">Zapomniałem hasła :(</a>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+       <!-- <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="loginmodal-container">
+                    <h1>Zarejestruj się</h1><br>
+                    <form method="post" action="">
+                        <input type="text" name="name" placeholder="Nazwa użytkownika">
+                        <input type="text" name="mail" placeholder="Adres email">
+                        <input type="password" name="pass" placeholder="Hasło">
+                        <input type="password" name="pass" placeholder="Potwierdź hasło">
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Zarejestruj się">
+                    </form>
+                </div>
+            </div>
+        </div>-->
+
+
+        <div class="modal-body row">
+            <div class="col-xs-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active"><a href="#">Profil</a></li>
+                    <li role="presentation"><a href="#">Profil<span class="badge">42</span></a></li>
+                    <li role="presentation"><a href="#">Aktywność<span class="badge">3</span></a></li>
+                    <li role="presentation" class="active"><a href="#">Pogoda</a></li>
+                    <li role="presentation"><a href="#">Twoja okolica</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Miasta<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Andrychów</a></li>
+                            <li><a href="#">Radom</a></li>
+                            <li><a href="#">Warszawa</a></li>
+                            <li><a href="#">Szczecin</a></li>
+                            <li><a href="#">Gdańsk</a></li>
+                            <li><a href="#">Poznań</a></li>
+                            <li><a href="#">Łódź</a></li>
+                            <li><a href="#">Katowice</a></li>
+                            <li><a href="#">Opole</a></li>
+                            <li><a href="#">Kalisz</a></li>
+                            <li><a href="#">Rzeszów</a></li>
+                            <li><a href="#">zakopane</a></li>
+                            <li><a href="#">Ełk</a></li>
+                            <li><a href="#">Gorzów Wielkopolski</a></li>
+
+                            <!--  <li role="separator" class="divider"></li>
+                            <!-- <li><a href="#"></a></li> -->
+                        </ul>
+                </ul>
+                </li>
+                <div id="tp-widget-default" data-widget="default/polska/malopolskie/krakow">
+                    <div id="tp-widget-default-beam">
+                        <a id="tp-widget-default-flink" href="http://www.twojapogoda.pl/polska/malopolskie/krakow" target="_blank" title="Kraków - prognoza pogody" data-ga="?utm_source=3days&utm_medium=forecast&utm_campaign=widget-free">Pogoda Kraków</a><span> z serwisu</span>
+                    </div>
+                    <script type="text/javascript">
+                        (function(d, t, i) {
+                            if (d.getElementById(i)) return;
+                            var f = d.getElementsByTagName(t)[0], js = d.createElement(t);
+                            js.id = i; js.src = 'http://www.twojapogoda.pl/widget/main.js';
+                            f.parentNode.appendChild(js);
+                        }(document, 'script', 'tp-widget'));
+                    </script>
+                </div>
+            </div>
+
+
+            <div class="col-xs-6">
+                <p>
+                    {% block body %}
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus mollis urna commodo, ultrices felis sed, vulputate urna. Proin non tortor ut felis sodales dictum nec eu ex. Nulla tristique purus eget elit cursus viverra. Nullam tristique tortor eu fermentum tristique. Sed dui velit, hendrerit sit amet arcu sit amet, mattis dictum ex. Aenean convallis viverra euismod. Proin diam massa, consequat ultricies vestibulum vel, sollicitudin sed lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam consectetur lorem sed arcu varius imperdiet. Praesent hendrerit ultricies quam, eu ultrices neque ultricies sed. Nunc id nunc sit amet purus consectetur pulvinar. Duis convallis finibus consectetur. Aenean quis enim vitae mi dictum egestas vel nec velit. Cras auctor ante ipsum, non scelerisque massa hendrerit ac.
+
+                    ng elit. Vivamus mollis urna commodo, ultrices felis sed, vulputate urna. Proin non tortor ut felis sodales dictum nec eu ex. Nulla tristique purus eget elit cursus viverra. Nullam tristique tortor eu fermentum tristique. Sed dui velit, hendrerit sit amet arcu sit amet, mattis dictum ex. Aenean convallis viverra euismod. Proin diam massa, consequat ultricies vestibulum vel, sollicitudin sed lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam consectetur lorem sed arcu varius imperdiet. Praesent hendrerit ultricies quam, eu ultrices neque ultricies sed. Nunc id nunc sit amet purus consectetur pulvinar. Duis convallis finibus consectetur. Aenean quis enim vitae mi dictum egestas vel nec velit. Cras auctor ante ipsum, non scelerisque massa hendrerit ac.
+                    {% endblock %}
+            </div>
+
+            <div class="col=xs-3">
+                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRCG4tcWOCjXOUoq0yMFlS_ym4yiFRs5d6gY-h1nj3LzUrrKUSkbA" class="img-rounded" width="320" height="400">
+            </div>
+
+            {#<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">#}
+                {#<div class="modal-dialog">#}
+                    {#<div class="loginmodal-container">#}
+                        {#<h1>Login to Your Account</h1><br>#}
+                        {#<form>#}
+                            {#<input type="text" name="user" placeholder="Username">#}
+                            {#<input type="password" name="pass" placeholder="Password">#}
+                            {#<input type="submit" name="login" class="login loginmodal-submit" value="Login">#}
+                        {#</form>#}
+
+                        {#<div class="login-help">#}
+                            {#<a href="#">Register</a> - <a href="#">Forgot Password</a>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#</div>#}
+
+
+            </div>
+
+        {% block javascripts %}
+            {#<script src="{{ asset('js/jquery.js') }}"></script>#}
+            {#<script src="{{ asset('js/bootstrap.min.js') }}"></script>#}
+            <script
+                    src="https://code.jquery.com/jquery-3.2.1.js"
+                    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+                    crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        {% endblock %}
     </body>
 </html>
