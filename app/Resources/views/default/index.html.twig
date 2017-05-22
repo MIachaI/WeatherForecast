@@ -2,8 +2,35 @@
 
 {% block body %}
 
-   Długość: {{ dlugosc }} szerokość: {{ szerokosc }}<br>
-   Temperatura: {{ temperatura-273 }}*C<br>
-   Ciśnienie: {{ cisnienie }}hPa<br>
-   Wilgotność: {{ wilgotnosc }}%
+   <table class="table">
+      <thead>
+      <tr>
+         <th>Zjawisko</th>
+         <th>Ocena</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+         <td>Długość Geograficzna</td>
+         <td>{{ dlugosc }}</td>
+      </tr>
+      <tr>
+         <td>Szerokość Geograficzna</td>
+         <td>{{ szerokosc }}</td>
+      </tr>
+      <tr>
+         <td>Temperatura</td>
+         <td>{{ temperatura-273 }}</td>
+      </tr>
+      <tr>
+         <td>Ciśnienie</td>
+         <td>{{ cisnienie }}</td>
+      </tr>
+      <tr>
+         <td>Wilgotność</td>
+         <td>{{ wilgotnosc }}</td>
+      </tr>
+
+      </tbody>
+   </table>
 {% endblock %}
