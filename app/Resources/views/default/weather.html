@@ -5,7 +5,7 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>{{miasto}}</th>
+        <th>{{usersCity}}</th>
         <th>Dane</th>
         <th></th>
     </tr>
@@ -13,23 +13,31 @@
     <tbody>
     <tr>
         <td>Długość Geograficzna</td>
-        <td>{{ dlugosc }}</td>
+        <td>{{ latitude }}</td>
     </tr>
     <tr>
         <td>Szerokość Geograficzna</td>
-        <td>{{ szerokosc }}</td>
+        <td>{{ longitude }}</td>
     </tr>
     <tr>
         <td>Temperatura</td>
-        <td>{{ temperatura-273 }} stopni Celsjusza</td>
+        <td>{{ temperature-273 }} &#8451</td>
     </tr>
     <tr>
         <td>Ciśnienie</td>
-        <td>{{ cisnienie }} hPa</td>
+        <td>{{ pressure }} hPa</td>
     </tr>
     <tr>
         <td>Wilgotność</td>
-        <td>{{ wilgotnosc }} %</td>
+        <td>{{ humidity }} %</td>
+    </tr>
+    <tr>
+        <td>Prędkość wiatru</td>
+        <td>{{ windSpeed }} m/s</td>
+    </tr>
+    <tr>
+        <td>Zachmurzenie</td>
+        <td>{{ clouds }} %</td>
     </tr>
 
     </tbody>

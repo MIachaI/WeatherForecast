@@ -24,20 +24,24 @@ class WeatherController extends Controller
         // $api_url = "http://api.openweathermap.org/data/2.5/weather?q=warsaw,pl&appid=ee13ce11b5ce9bc77e5e7c8856232a34";
         $weather_data = file_get_contents($api_url);
         $json = json_decode($weather_data, TRUE);
-        $dlugosc_geograficzna = $json['coord']['lon'];
-        $szerokosc_geograficzna = $json['coord']['lat'];
-        $temp = $json['main']['temp'];
+        $geoLongitude = $json['coord']['lon'];
+        $geoLatitude = $json['coord']['lat'];
+        $temperature = $json['main']['temp'];
         $pressure = $json['main']['pressure'];
-        $wilgotnosc = $json['main']['humidity'];
+        $humidity = $json['main']['humidity'];
+        $windSpeed = $json['wind']['speed'];
+        $clouds = $json['clouds']['all'];
 
         return $this->render('default/weather.html', [
-            'pogoda' => $weather_data,
-            'dlugosc' => $dlugosc_geograficzna,
-            'szerokosc' => $szerokosc_geograficzna,
-            'temperatura' => $temp,
-            'cisnienie' => $pressure,
-            'wilgotnosc' => $wilgotnosc,
-            'miasto' => $user_city
+            'weather' => $weather_data,
+            'longitude' => $geoLongitude,
+            'latitude' => $geoLatitude,
+            'temperature' => $temperature,
+            'pressure' => $pressure,
+            'humidity' => $humidity,
+            'usersCity' => $user_city,
+            'windSpeed' =>$windSpeed,
+            'clouds' => $clouds
         ]);
 
 
