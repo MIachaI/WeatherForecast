@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>{{miasto}}</th>
+        <th>Dane</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Długość Geograficzna</td>
+        <td>{{ dlugosc }}</td>
+    </tr>
+    <tr>
+        <td>Szerokość Geograficzna</td>
+        <td>{{ szerokosc }}</td>
+    </tr>
+    <tr>
+        <td>Temperatura</td>
+        <td>{{ temperatura-273 }} stopni Celsjusza</td>
+    </tr>
+    <tr>
+        <td>Ciśnienie</td>
+        <td>{{ cisnienie }} hPa</td>
+    </tr>
+    <tr>
+        <td>Wilgotność</td>
+        <td>{{ wilgotnosc }} %</td>
+    </tr>
+
+    </tbody>
+</table>
+
+{% endblock %}

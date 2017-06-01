@@ -13,8 +13,9 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-            //$user_city = $_GET['city'];
-            $api_url = "http://api.openweathermap.org/data/2.5/weather?q=Warsaw,pl&appid=ee13ce11b5ce9bc77e5e7c8856232a34";
+           // $user_city = $_GET['city'];
+            //$api_url = "http://api.openweathermap.org/data/2.5/weather?q=". $user_city . ",pl&appid=ee13ce11b5ce9bc77e5e7c8856232a34";
+        $api_url = "http://api.openweathermap.org/data/2.5/weather?q=warsaw,pl&appid=ee13ce11b5ce9bc77e5e7c8856232a34";
             $weather_data = file_get_contents($api_url);
             $json = json_decode($weather_data, TRUE);
             $dlugosc_geograficzna = $json['coord']['lon'];
